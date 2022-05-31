@@ -16,6 +16,7 @@
         <a href="?controller=security&action=logout">Выйти</a>
     <?php else : ?>
         <a href="?controller=security">Войти</a>
+        <a href="?controller=signup">Зарегистрироваться</a>
     <?php endif ?>
 </body>
 

@@ -4,7 +4,10 @@
 class User 
 {
     private string $userName;
-    private array $tasks = [];
+    private string $name;
+    private int $id;
+
+
     public function __construct(string $userName)
     {
         $this->userName = $userName;
@@ -13,26 +16,48 @@ class User
      /**
      * Get the value of userName
      */ 
-    public function getUserName()
+    public function getUserName(): string
     {
         return $this->userName;
     }
 
     /**
-     * Get the value of tasks
+     * Get the value of name
      */ 
-    public function getTasks()
+    public function getName(): ?string
     {
-        return $this->tasks;
+        return $this->name;
+    }
+
+
+    public function setName($name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+
+    public function setUserName($userName): self
+    {
+        $this->userName = $userName;
+
+        return $this;
     }
 
     /**
-     * Set the value of tasks
-     *
-     * @return  self
+     * Get the value of id
      */ 
-    public function setTasks($tasks): void
+    public function getId(): int
     {
-        $this->tasks[] = $tasks;
+        return $this->id;
+    }
+
+   
+    public function setId($id): self
+    {
+        $this->id = $id;
+
+        return $this;
     }
 }

@@ -19,7 +19,7 @@
     <ol>
         <?php if (isset($tasks)) : ?>
             <?php foreach ($tasks as $task) : ?>
-                <li><?= $task->getDescription()?> <a href="#">Завершить</a></li>
+                <li><?= $task['description'] ?><a href="?controller=task&action=done&id=<?=$task['id']?>" data-id="<?= $task['id'] ?>">Завершить</a></li>
             <?php endforeach ?>
         <?php endif ?>
     </ol>

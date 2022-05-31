@@ -1,15 +1,21 @@
 <?php
 
 require_once 'model/TaskProvider.php';
+$pdo = require 'db.php';
+$taskProvider = new TaskProvider($pdo);
 
 if (isset($_POST['description'])) {
     ['description' => $description] = $_POST;
-    TaskProvider::addTask($description);
+    $taskProvider->addTask($description);
 }
 
-if (isset($_GET['action']) && $_GET['action'] === 'get_tasks') {
-    $tasks = TaskProvider::getUndoneList();
+if(isset($_GET['action']) && $_GET['action'] === 'done') {
+    $id = $_GET['id'];
+    $taskProvider->doDoneTask($id);
 }
+
+$tasks = $taskProvider->getUndoneList();
+
 
 
 
