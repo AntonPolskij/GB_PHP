@@ -21,7 +21,7 @@ if (isset($_SESSION['user'])) {
 }
 
 if (isset($_GET['action']) && $_GET['action'] === 'logout') {
-    unset($_SESSION['user']);
+    session_destroy();
     header('Location: /');
 }
 
